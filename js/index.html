@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <title>CSS + HTML Test</title>
+  </head>
+  <body>
+    <form onsubmit="return validateForm() & Characlength() & checkpalindrome()" method="post">
+  <label>Enter your text below</label>
+ <textarea type="text" id="tname" placeholder='Enter your text here...'></textarea>
+ <input type="submit" value="Submit">
+ </form>
+    <script type='text/javascript'>
+
+functionEnabled = true;
+
+    function validateForm() {
+      var textarea = document.getElementById('tname').value;
+      if (textarea === "") {
+        alert("This field must be must be filled");
+        functionEnabled = false;
+        return false;
+      }
+    }
+
+    function Characlength(){
+      var textarea = document.getElementById('tname');
+      if(textarea.value.length > 255){
+        alert("make sure the input is not more than 255 characters long");
+        functionEnabled = false;
+      }
+    }
+    function palindrome(str) {
+      var normalizedStr = str.replace(/[\W_]/g, '').toLowerCase();
+      var reverseStr = normalizedStr.split('').reverse().join('');
+      return normalizedStr === reverseStr;
+    }
+
+    function checkpalindrome(){
+
+        if (functionEnabled === true){
+
+      var palindromevalue = document.getElementById('tname').value;
+      if(palindrome(palindromevalue)){
+        alert("Characters entered musnt be a palindrome");
+      }else if("palindrome"){
+        alert("Cant enter the word palindrome");
+      }
+    }
+}
+    </script>
+  </body>
+</html>
